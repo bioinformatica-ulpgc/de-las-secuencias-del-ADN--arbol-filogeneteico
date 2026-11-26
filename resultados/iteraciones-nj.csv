@@ -1,0 +1,4 @@
+iteracion,n,nodo_A,nodo_B,Q_min,"d(A,B)",nuevo_nodo,rama_A,rama_B,rama_C_final,nuevas_distancias
+1,5,Hylobates lar,Pongo pygmaeus,-0.734760051,0.153047990,U1,0.078145266,0.074902724,,Homo sapiens=0.070363164; Pan troglodytes=0.072632944; Gorilla gorilla=0.071335927
+2,4,Gorilla gorilla,U1,-0.352464332,0.071335927,U2,0.052285992,0.019049935,,Homo sapiens=0.053988327; Pan troglodytes=0.050907912
+3,3,Homo sapiens,Pan troglodytes,,,U3,0.044990272,0.041909858,U2=0.008998054,

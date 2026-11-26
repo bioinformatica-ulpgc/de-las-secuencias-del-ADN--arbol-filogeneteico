@@ -1,0 +1,57 @@
+=== Iteración 1 (n = 5) ===
+Matriz D:
+                Humano  Chimpancé     Gorila  Orangután      Gibón
+Humano        0.000000   0.086900   0.108949   0.144617   0.149157
+Chimpancé     0.086900   0.000000   0.100519   0.143320   0.154994
+Gorila        0.108949   0.100519   0.000000   0.151102   0.144617
+Orangután     0.144617   0.143320   0.151102   0.000000   0.153048
+Gibón         0.149157   0.154994   0.144617   0.153048   0.000000
+r(i): Humano=0.489624, Chimpancé=0.485733, Gorila=0.505188, Orangután=0.592088, Gibón=0.601816
+Matriz Q = (n-2)·d(i,j) - r(i) - r(j):
+                Humano  Chimpancé     Gorila  Orangután      Gibón
+Humano        0.000000  -0.714656  -0.667964  -0.647860  -0.643969
+Chimpancé    -0.714656   0.000000  -0.689364  -0.647860  -0.622568
+Gorila       -0.667964  -0.689364   0.000000  -0.643969  -0.673152
+Orangután    -0.647860  -0.647860  -0.643969   0.000000  -0.734760
+Gibón        -0.643969  -0.622568  -0.673152  -0.734760   0.000000
+Par seleccionado (Q mínimo = -0.734760): Gibón + Orangután  ->  nuevo nodo U1
+  L(Gibón, U1) = d/2 + [r(Gibón) - r(Orangután)]/[2(n-2)] = 0.078145
+  L(Orangután, U1) = d - L(Gibón) = 0.074903
+Distancias al nuevo nodo d(U1,k) = [d(i,k) + d(j,k) - d(i,j)] / 2:
+  d(U1, Humano) = 0.070363
+  d(U1, Chimpancé) = 0.072633
+  d(U1, Gorila) = 0.071336
+
+=== Iteración 2 (n = 4) ===
+Matriz D:
+                Humano  Chimpancé     Gorila         U1
+Humano        0.000000   0.086900   0.108949   0.070363
+Chimpancé     0.086900   0.000000   0.100519   0.072633
+Gorila        0.108949   0.100519   0.000000   0.071336
+U1            0.070363   0.072633   0.071336   0.000000
+r(i): Humano=0.266213, Chimpancé=0.260052, Gorila=0.280804, U1=0.214332
+Matriz Q = (n-2)·d(i,j) - r(i) - r(j):
+                Humano  Chimpancé     Gorila         U1
+Humano        0.000000  -0.352464  -0.329118  -0.339818
+Chimpancé    -0.352464   0.000000  -0.339818  -0.329118
+Gorila       -0.329118  -0.339818   0.000000  -0.352464
+U1           -0.339818  -0.329118  -0.352464   0.000000
+Par seleccionado (Q mínimo = -0.352464): Gorila + U1  ->  nuevo nodo U2
+  L(Gorila, U2) = d/2 + [r(Gorila) - r(U1)]/[2(n-2)] = 0.052286
+  L(U1, U2) = d - L(Gorila) = 0.019050
+Distancias al nuevo nodo d(U2,k) = [d(i,k) + d(j,k) - d(i,j)] / 2:
+  d(U2, Humano) = 0.053988
+  d(U2, Chimpancé) = 0.050908
+
+=== Unión final (quedan 3 nodos) -> nodo central U3 ===
+Matriz D:
+                Humano  Chimpancé         U2
+Humano        0.000000   0.086900   0.053988
+Chimpancé     0.086900   0.000000   0.050908
+U2            0.053988   0.050908   0.000000
+L(a) = [d(a,b) + d(a,c) - d(b,c)] / 2, etc.
+  L(Humano, U3) = 0.044990
+  L(Chimpancé, U3) = 0.041910
+  L(U2, U3) = 0.008998
+
+Newick: (Homo_sapiens:0.044990272,Pan_troglodytes:0.041909858,(Gorilla_gorilla:0.052285992,(Hylobates_lar:0.078145266,Pongo_pygmaeus:0.074902724):0.019049935):0.008998054);
