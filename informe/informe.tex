@@ -7,22 +7,29 @@
 \usepackage[spanish,es-noshorthands,es-tabla]{babel}
 \usepackage{lmodern}
 \usepackage{microtype}
-\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage[a4paper,top=1.8cm,bottom=1.8cm,left=2cm,right=2cm]{geometry}
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
 \usepackage{booktabs,tabularx,array}
 \usepackage{enumitem}
-\usepackage{xcolor}
 \usepackage{caption}
+\usepackage{titlesec}
+\usepackage{float}
+\titlespacing*{\section}{0pt}{1.6ex plus 0.5ex}{0.8ex}
 \usepackage[hyphens]{url}
 \usepackage[hidelinks]{hyperref}
 
 \graphicspath{{../resultados/}}
-\definecolor{azul}{HTML}{18324B}
 \captionsetup{font=small,labelfont=bf}
 \setlist{itemsep=1pt,topsep=2pt,parsep=0pt}
 \setlength{\parskip}{3pt}
 \setlength{\emergencystretch}{3em}
+% ningún párrafo se parte entre dos páginas
+\interlinepenalty=10000
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\raggedbottom
 \renewcommand{\arraystretch}{1.15}
 
 % rutas, nombres de archivos y fragmentos de código
@@ -30,14 +37,14 @@
 \DeclareUrlCommand\code{\urlstyle{tt}}   % como \texttt, pero admite _ y corta líneas en / . -
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
 
-\title{\color{azul}\textbf{Práctica A: reconstrucción filogenética}\\[2pt]
+\title{\vspace{-2.5em}\textbf{Práctica A: reconstrucción filogenética}\\[2pt]
   \large\itshape Análisis del código proporcionado, implementación de Neighbor-Joining y comparación con UPGMA}
 \author{Daniel Perdomo Medina \and Aimar Alejandro Santana}
-\date{\vspace{-0.6em}Bioinformática · Grado en Biotecnología · Curso 2026-27}
+\date{\vspace{-0.6em}Bioinformática · Grado en Ciencia e Ingeniería de Datos}
 
 \begin{document}
 \maketitle
-\vspace{-1em}
+\vspace{-1.5em}
 \begin{center}
 \textbf{Repositorio:} \url{https://github.com/bioinformatica-ulpgc/de-las-secuencias-del-ADN--rbol-filogen-teico}
 \end{center}
@@ -144,7 +151,7 @@ Llama la atención que NJ \textbf{no} empiece uniendo humano y chimpancé, que s
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.88\linewidth]{arbol-nj.png}
+\includegraphics[width=0.8\linewidth]{arbol-nj.png}
 \caption{Árbol NJ de COX1: representación radial no enraizada (izquierda) y filograma colgado del nodo central (derecha).}
 \end{figure}
 
@@ -163,7 +170,7 @@ Las 22 pruebas de \code{tests/test_nj.py} pasan. Entre ellas:
 %=====================================================================
 \section{Comparación UPGMA--NJ con las mismas distancias}
 
-\begin{table}[htbp]
+\begin{table}[H]
 \centering\small
 \begin{tabularx}{\linewidth}{@{}L l l@{}}
 \toprule
@@ -186,7 +193,7 @@ Orangután · Gibón & 0,07317 · 0,07728$^{*}$ & 0,07490 · 0,07815\\
 
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=0.88\linewidth]{upgma-vs-nj.png}
+\includegraphics[width=0.8\linewidth]{upgma-vs-nj.png}
 \caption{UPGMA proporcionado (izquierda) y NJ propio enraizado en la rama del gibón (derecha): misma topología, distintas longitudes de rama.}
 \end{figure}
 

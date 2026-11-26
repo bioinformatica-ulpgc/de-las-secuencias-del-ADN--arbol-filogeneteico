@@ -349,16 +349,16 @@ def dibujar(res: ResultadoNJ, ruta_png: Path, titulo: str = "Neighbor-Joining") 
     for p, hs in hijos.items():
         for h, l in hs:
             (x0, y0), (x1, y1) = pos[p], pos[h]
-            ax1.plot([x0, x1], [y0, y1], color="#235b79", lw=2)
+            ax1.plot([x0, x1], [y0, y1], color="black", lw=2)
             # etiqueta desplazada perpendicularmente a la rama para no tapar los nombres
             dx, dy = x1 - x0, y1 - y0
             norma = math.hypot(dx, dy) or 1.0
             ax1.annotate(f"{l:.4f}", ((x0 + x1) / 2, (y0 + y1) / 2),
                          xytext=(-dy / norma * 9, dx / norma * 9), textcoords="offset points",
-                         fontsize=8, color="#666", ha="center", va="center")
+                         fontsize=8, color="black", ha="center", va="center")
     for h in res.hojas:
         x, y = pos[h]
-        ax1.plot(x, y, "o", color="#167a7c")
+        ax1.plot(x, y, "o", color="black")
         ax1.annotate(_ab(h), (x, y), xytext=(6, 4), textcoords="offset points", fontsize=11)
     ax1.set_aspect("equal")
     ax1.margins(0.25)
