@@ -2,4 +2,8 @@
 __pycache__/
 *.pyc
 .DS_Store
-informe/informe.typ
+informe/*.aux
+informe/*.log
+informe/*.out
+informe/*.toc
+informe/*.synctex.gz

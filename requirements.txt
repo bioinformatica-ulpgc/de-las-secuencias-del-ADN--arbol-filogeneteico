@@ -3,5 +3,3 @@ biopython>=1.80
 numpy>=1.23
 matplotlib>=3.6
 pillow>=9.0
-# Solo para regenerar el PDF del informe (opcional)
-typst>=0.12
