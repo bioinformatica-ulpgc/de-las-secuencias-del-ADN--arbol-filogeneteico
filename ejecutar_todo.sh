@@ -17,9 +17,3 @@ $PY -m unittest -v
 
 echo "== 4. Comparación NJ propio vs Biopython y UPGMA vs NJ =="
 $PY comparar.py > /dev/null && echo "resultados/comparacion.md y resultados/upgma-vs-nj.png generados"
-
-if command -v pdflatex > /dev/null; then
-  echo "== 5. Informe PDF (LaTeX) =="
-  (cd informe && pdflatex -interaction=nonstopmode informe.tex > /dev/null && pdflatex -interaction=nonstopmode informe.tex > /dev/null)
-  echo "informe/informe.pdf generado"
-fi

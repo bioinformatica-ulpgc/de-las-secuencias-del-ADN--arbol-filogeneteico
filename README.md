@@ -5,7 +5,7 @@
 Revisión del código proporcionado (distancias p + UPGMA), **implementación propia de Neighbor-Joining**
 y comparación de ambos métodos. Asignatura de Bioinformática, Bloque II.
 
-📄 Informe: [`informe/informe.pdf`](informe/informe.pdf) (fuente LaTeX en [`informe/informe.tex`](informe/informe.tex))
+📄 Informe: [`informe/informe.pdf`](informe/informe.pdf)
 
 ## Estructura y autoría
 
@@ -20,7 +20,7 @@ y comparación de ambos métodos. Asignatura de Bioinformática, Bloque II.
 | **`comparar.py`** | **Propio** | NJ propio vs Biopython; UPGMA vs NJ; ejemplo sintético sin reloj molecular |
 | **`tests/test_nj.py`** | **Propio** | 22 pruebas (ejemplo de clase, árbol aditivo, validación, Biopython) |
 | `resultados/` | Generado por el código propio | `arbol-nj.nwk`, `iteraciones-nj.{csv,json}`, `traza-nj.txt`, `arbol-nj.png`, `comparacion.md`, `upgma-vs-nj.png` |
-| `informe/` | Propio | Informe en LaTeX (`informe.tex`) y PDF compilado |
+| `informe/informe.pdf` | Propio | Informe de la práctica (compilado con LaTeX) |
 
 `nj.py` **no** usa ninguna función de biblioteca que implemente Neighbor-Joining. `Bio.Phylo.TreeConstruction`
 solo se usa en `comparar.py` y en los tests como implementación de referencia.
@@ -32,7 +32,6 @@ solo se usa en `comparar.py` y en los tests como implementación de referencia.
 - **NumPy**: operaciones con matrices ($r$, $Q$, actualización de $D$).
 - **Matplotlib** y **Pillow**: figuras y animación.
 - Biblioteca estándar: `csv`, `json`, `argparse`, `unittest`.
-- *(Opcional)* Una distribución LaTeX (TeX Live, MacTeX, TinyTeX…) para recompilar el informe.
 
 ## Cómo ejecutarlo
 
@@ -51,7 +50,6 @@ python proporcionado/generar_animacion.py  # imagenes/construccion-upgma.gif
 python nj.py                               # NJ propio: imprime la traza y escribe resultados/
 python -m unittest -v                      # 22 pruebas
 python comparar.py                         # resultados/comparacion.md y upgma-vs-nj.png
-cd informe && pdflatex informe.tex && pdflatex informe.tex   # informe.pdf (opcional)
 ```
 
 `nj.py` acepta otra matriz con el mismo formato: `python nj.py --entrada mi_matriz.csv --salida otra_carpeta/`.

@@ -7,3 +7,4 @@ informe/*.log
 informe/*.out
 informe/*.toc
 informe/*.synctex.gz
+informe/*.tex
